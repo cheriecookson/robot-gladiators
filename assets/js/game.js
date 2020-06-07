@@ -4,6 +4,29 @@
 //    * Defeat each enemy robot
 // "LOSE" - Player robot's health is zero or less
 
+var fightOrSkip = function() {
+  
+ // repeat and execute as long as the enemy robot is alive 
+while(enemy.health > 0 && playerInfo.health > 0) {
+  promptFight = promptFight.toLowerCase();
+  var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
+}
+
+  // if user picks "skip" confirm and then stop the loop
+  if (promptFight === "skip" || promptFight === "SKIP") {
+    // confirm user wants to skip
+    var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+
+    // if yes (true), leave fight
+    if (confirmSkip) {
+      window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
+      // subtract money from playerMoney for skipping
+      playerInfo.playerMoney = playerInfo.money - 10;
+      shop();
+    }
+  }
+}
+
 var fight = function(enemy) {
     while (playerInfo.health > 0 && enemy.health > 0) {
       // ask user if they'd liked to fight or run
